@@ -1,0 +1,22 @@
+$color-link: #a8a8b3;
+
+.header { 
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__link {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    text-decoration: none;
+    color: $color-link;
+    transition: color 0.2s;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}
