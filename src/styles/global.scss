@@ -1,0 +1,37 @@
+$background-color: #F0F0F5;
+$text-color: #29292e;
+$font-family: 'Roboto', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+
+  @media (max-width: 768px) {
+    font-size: 57.75%;
+  };
+
+  @media (max-width: 400px) {
+    font-size: 53%;
+  };
+}
+
+body {
+  background: $background-color;
+  color: $text-color;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+body, input, button {
+  font: 400 1.6rem $font-family;
+}
