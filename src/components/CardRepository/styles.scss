@@ -1,0 +1,27 @@
+@import '/src/styles/_variables.scss';
+
+.cardRepository {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: map-get($theme-colors, 'white');
+  border: 1px solid map-get($theme-colors, 'border');
+  border-radius: 5px;
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 2rem;
+
+  &__info {
+    flex: 1;
+  }
+
+  &__description {
+    margin-top: 0.5rem;
+    font-size: 1.4rem;
+  }
+
+  &__details {
+    display: flex;
+    gap: 1rem;
+  }
+}
