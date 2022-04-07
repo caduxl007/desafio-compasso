@@ -107,16 +107,10 @@ export function Home() {
           />
 
           <div className="home__contentButtons">
-            <Button
-              isLoading={false}
-              onClick={() => setRepositories(repositoriesUser)}
-            >
+            <Button onClick={() => setRepositories(repositoriesUser)}>
               Repositórios
             </Button>
-            <Button
-              isLoading={false}
-              onClick={() => setRepositories(repositoriesUserStarred)}
-            >
+            <Button onClick={() => setRepositories(repositoriesUserStarred)}>
               Mais visitados
             </Button>
           </div>
