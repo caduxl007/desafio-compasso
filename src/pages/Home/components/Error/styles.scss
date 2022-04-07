@@ -1,0 +1,7 @@
+@import '/src/styles/variables';
+
+.error {
+  display: block;
+  color: map-get($theme-colors, 'red');
+  margin-top: 0.8rem;
+}
