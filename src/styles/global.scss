@@ -1,6 +1,6 @@
-$background-color: #F0F0F5;
-$text-color: #29292e;
-$font-family: 'Roboto', sans-serif;
+@import './variables';
+
+$font-family: 'Archivo', sans-serif;
 
 * {
   margin: 0;
@@ -22,12 +22,12 @@ html {
 }
 
 body {
-  background: $background-color;
-  color: $text-color;
+  background: map-get($theme-colors, 'background');
+  color: map-get($theme-colors, 'text');
 }
 
 #root {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 4rem 2rem;
 }

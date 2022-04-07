@@ -18,7 +18,7 @@ export function CardGithubUser({
 }: CardGithubUserProps) {
   return (
     <div className="cardGithubUser">
-      <Link to={username} className="cardGithubUser__link">
+      <Link to={`/profile/${username}`} className="cardGithubUser__link">
         <img className="cardGithubUser__image" src={avatar_url} alt={name} />
         <div className="cardGithubUser__info">
           <h3 className="cardGithubUser__title">

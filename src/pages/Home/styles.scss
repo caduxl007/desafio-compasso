@@ -1,0 +1,47 @@
+@import '/src/styles/variables';
+
+.home {
+  width: 100%;
+
+  &__form {
+    margin-bottom: 3rem;
+
+    &__content {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    height: 6rem;
+    padding: 0 2.4rem;
+    border: 0;
+    border-radius: 5px;
+    border: 2px solid map-get($theme-colors, 'border');
+
+    &--error {
+      border-color: map-get($theme-colors, 'red');
+    }
+  }
+
+  &__contentButtons {
+    display: flex;
+    gap: 3rem;
+    margin: 2rem 0;
+    justify-content: center;
+  }
+
+  &__contentCardsGithubUser {
+    margin-top: 3rem;
+  }
+
+  &__contentCardsRepository {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #ddd;
+
+  }
+}
