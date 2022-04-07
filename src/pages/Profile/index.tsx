@@ -44,10 +44,10 @@ export function Profile() {
       </header>
 
       <div className="profile__contentButtons">
-        <Button onClick={() => setRepositories(repositoriesUser)}>
+        <Button isLoading={false} onClick={() => setRepositories(repositoriesUser)}>
           Repositórios
         </Button>
-        <Button onClick={() => setRepositories(repositoriesUserStarred)}>
+        <Button isLoading={false} onClick={() => setRepositories(repositoriesUserStarred)}>
           Mais visitados
         </Button>
       </div>
