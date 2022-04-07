@@ -1,0 +1,16 @@
+@import '/src/styles/variables';
+
+.button {
+  height: 6rem;
+  padding:  0 1.5rem;
+  background: map-get($theme-colors, 'background-button');
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: map-get($theme-colors, 'white');
+  transition: background-color 0.2s;
+
+  &:hover {
+    filter:brightness(0.8);
+  }
+}
