@@ -6,8 +6,10 @@ export function usePersistedState<T>(
   key: string,
   initialState: T,
 ): Response<T> {
+  const baseStorage = `github@${key}`;
+
   const [state, setState] = useState(() => {
-    const storageValue = localStorage.getItem(key);
+    const storageValue = localStorage.getItem(baseStorage);
 
     if (storageValue) {
       return JSON.parse(storageValue);
@@ -17,8 +19,8 @@ export function usePersistedState<T>(
   });
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
+    localStorage.setItem(baseStorage, JSON.stringify(state));
+  }, [baseStorage, state]);
 
   return [state, setState];
 }
