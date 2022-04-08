@@ -19,11 +19,13 @@ export function CardGithubUser({
   return (
     <div className="cardGithubUser">
       <Link to={`/profile/${username}`} className="cardGithubUser__link">
-        <img className="cardGithubUser__image" src={avatar_url} alt={name} />
+        <figure>
+          <img className="cardGithubUser__image" src={avatar_url} alt={name} />
+        </figure>
         <div className="cardGithubUser__info">
-          <h3 className="cardGithubUser__title">
+          <h2 className="cardGithubUser__title">
             <strong>{name}</strong>({username})
-          </h3>
+          </h2>
 
           <p className="cardGithubUser__description">{bio}</p>
         </div>

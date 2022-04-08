@@ -17,7 +17,7 @@ export function ProfileUser({
         <img src={avatar_url} alt={name} className="profileUser__image" />
 
         <div>
-          <h3 className="profileUser__name">{name}</h3>
+          <h1 className="profileUser__name">{name}</h1>
           <p>{login}</p>
         </div>
       </header>

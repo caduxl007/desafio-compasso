@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { api } from 'services/api';
 import { IRepository, IUser } from 'shared/models';
 import { usePersistedState } from 'utils/usePersistedState';
@@ -79,6 +80,16 @@ export function Home() {
   }
 
   return (
+    <>
+    <Helmet>
+        <title>Desafio Compasso | Home</title>
+        <meta
+          name="description"
+          content="Página de busca de usuários e de repositórios no Github"
+        />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
     <main className="home">
       <Title>Busque usuários no GitHub</Title>
 
@@ -107,7 +118,7 @@ export function Home() {
           />
 
           <div className="home__contentButtons">
-            <Button onClick={() => setRepositories(repositoriesUser)}>
+            <Button data-message="teste" onClick={() => setRepositories(repositoriesUser)}>
               Repositórios
             </Button>
             <Button onClick={() => setRepositories(repositoriesUserStarred)}>
@@ -132,5 +143,6 @@ export function Home() {
         </section>
       )}
     </main>
+    </>
   );
 }

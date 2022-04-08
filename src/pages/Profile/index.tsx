@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet-async';
+
 import { Button, CardRepository } from 'components';
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -29,43 +31,53 @@ export function Profile() {
   }
 
   return (
-    <main className="profile">
-      <header className="profile__header">
-        {data && (
-          <ProfileUser
-            avatar_url={data.avatar_url}
-            bio={data.bio}
-            public_repos={data.public_repos}
-            followers={data.followers}
-            login={data.login}
-            name={data.name}
-          />
-        )}
-      </header>
-
-      <div className="profile__contentButtons">
-        <Button onClick={() => setRepositories(repositoriesUser)}>
-          Repositórios
-        </Button>
-        <Button onClick={() => setRepositories(repositoriesUserStarred)}>
-          Mais visitados
-        </Button>
-      </div>
-
-      {repositories && (
-        <section className="profile__contentCardsRepository">
-          {repositories.map((data) => (
-            <CardRepository
-              key={String(data.id)}
-              description={data.description}
-              forks={data.forks}
-              stargazers_count={data.stargazers_count}
+    <>
+      <Helmet>
+        <title>Desafio Compasso | {username}</title>
+        <meta
+          name="description"
+          content={`Detalhes da conta e repositórios do usuario ${username}`}
+        />
+        <link rel="canonical" href={`/${username}`} />
+      </Helmet>
+      <main className="profile">
+        <header className="profile__header">
+          {data && (
+            <ProfileUser
+              avatar_url={data.avatar_url}
+              bio={data.bio}
+              public_repos={data.public_repos}
+              followers={data.followers}
+              login={data.login}
               name={data.name}
-              watchers={data.watchers}
             />
-          ))}
-        </section>
-      )}
-    </main>
+          )}
+        </header>
+
+        <div className="profile__contentButtons">
+          <Button onClick={() => setRepositories(repositoriesUser)}>
+            Repositórios
+          </Button>
+          <Button onClick={() => setRepositories(repositoriesUserStarred)}>
+            Mais visitados
+          </Button>
+        </div>
+
+        {repositories && (
+          <section className="profile__contentCardsRepository">
+            {repositories.map((data) => (
+              <CardRepository
+                key={String(data.id)}
+                description={data.description}
+                forks={data.forks}
+                stargazers_count={data.stargazers_count}
+                name={data.name}
+                watchers={data.watchers}
+              />
+            ))}
+          </section>
+        )}
+      </main>
+    </>
   );
 }

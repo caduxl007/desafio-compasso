@@ -20,9 +20,9 @@ export function CardRepository({
       </div>
 
       <div className="cardRepository__details">
-        <h5>Stars: {stargazers_count}</h5>
-        <h5>Forks: {forks}</h5>
-        <h5>Watch: {watchers}</h5>
+        <p><strong>Stars:</strong> {stargazers_count}</p>
+        <p><strong>Forks:</strong> {forks}</p>
+        <p><strong>Watch:</strong> {watchers}</p>
       </div>
     </div>
   );
