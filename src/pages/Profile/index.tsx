@@ -1,14 +1,14 @@
 import { Helmet } from 'react-helmet-async';
 
 import { Button, CardRepository } from 'components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { IRepository, IUser } from 'shared/models';
 import { useFetch } from 'utils/useFetch';
 import { ProfileUser } from './components/ProfileUser';
 import './styles.scss';
 
-export function Profile() {
+export default function Profile() {
   const { username } = useParams();
   const navigate = useNavigate();
 
@@ -22,13 +22,15 @@ export function Profile() {
 
   const [repositories, setRepositories] = useState<IRepository[] | null>(null);
 
-  if (isLoading) {
-    return <h2 style={{ textAlign: 'center' }}>Carregando...</h2>;
-  }
+  // if (isLoading) {
+  //   return <h2 style={{ textAlign: 'center' }}>Carregando...</h2>;
+  // }
 
-  if (error || !data) {
-    navigate('/');
-  }
+  useEffect(() => {
+    if (error) {
+      navigate('/');
+    }
+  }, [error, data, navigate]);
 
   return (
     <>

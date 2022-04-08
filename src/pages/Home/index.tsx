@@ -12,7 +12,7 @@ import {
 import { Error } from './components/Error';
 import './styles.scss';
 
-export function Home() {
+export default function Home() {
   const [search, setSearch] = useState('');
   const [inputError, setInputError] = useState('');
   const [user, setUser] = useState<IUser>();
