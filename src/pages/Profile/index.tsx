@@ -1,36 +1,26 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 import { Button, CardRepository } from 'components';
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { IRepository, IUser } from 'shared/models';
-import { useFetch } from 'utils/useFetch';
+import { IRepository } from 'shared/models';
 import { ProfileUser } from './components/ProfileUser';
+import { useDataGithub } from 'hooks/useDataGithub';
+
 import './styles.scss';
 
-export default function Profile() {
+export function Profile() {
   const { username } = useParams();
-  const navigate = useNavigate();
-
-  const { data, isLoading, error } = useFetch<IUser>(`users/${username}`);
-  const { data: repositoriesUser } = useFetch<IRepository[]>(
-    `users/${username}/repos`,
-  );
-  const { data: repositoriesUserStarred } = useFetch<IRepository[]>(
-    `users/${username}/starred`,
-  );
+  const { user, repositoriesUser, repositoriesUserStarred, loadingDataUser } =
+    useDataGithub();
 
   const [repositories, setRepositories] = useState<IRepository[] | null>(null);
 
-  // if (isLoading) {
-  //   return <h2 style={{ textAlign: 'center' }}>Carregando...</h2>;
-  // }
-
   useEffect(() => {
-    if (error) {
-      navigate('/');
+    if (username && username !== user?.login) {
+      loadingDataUser(username);
     }
-  }, [error, data, navigate]);
+  }, [username, user, loadingDataUser]);
 
   return (
     <>
@@ -43,27 +33,29 @@ export default function Profile() {
         <link rel="canonical" href={`/${username}`} />
       </Helmet>
       <main className="profile">
-        <header className="profile__header">
-          {data && (
-            <ProfileUser
-              avatar_url={data.avatar_url}
-              bio={data.bio}
-              public_repos={data.public_repos}
-              followers={data.followers}
-              login={data.login}
-              name={data.name}
-            />
-          )}
-        </header>
+        {user && (
+          <>
+            <header className="profile__header">
+              <ProfileUser
+                avatar_url={user.avatar_url}
+                bio={user.bio}
+                public_repos={user.public_repos}
+                followers={user.followers}
+                login={user.login}
+                name={user.name}
+              />
+            </header>
 
-        <div className="profile__contentButtons">
-          <Button onClick={() => setRepositories(repositoriesUser)}>
-            Repositórios
-          </Button>
-          <Button onClick={() => setRepositories(repositoriesUserStarred)}>
-            Mais visitados
-          </Button>
-        </div>
+            <div className="profile__contentButtons">
+              <Button onClick={() => setRepositories(repositoriesUser)}>
+                Repositórios
+              </Button>
+              <Button onClick={() => setRepositories(repositoriesUserStarred)}>
+                Mais visitados
+              </Button>
+            </div>
+          </>
+        )}
 
         {repositories && (
           <section className="profile__contentCardsRepository">
