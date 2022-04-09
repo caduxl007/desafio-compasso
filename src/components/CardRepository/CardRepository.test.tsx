@@ -15,7 +15,7 @@ describe('CardRepository component', () => {
   it('renders correctly', () => {
     render(
       <MemoryRouter>
-        <CardRepository {...MOCK_REPOSITORY} />
+        <CardRepository repository={MOCK_REPOSITORY} />
       </MemoryRouter>,
     );
 

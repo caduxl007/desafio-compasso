@@ -1,10 +1,7 @@
 import React, { Suspense } from 'react';
-
 import { Routes, Route } from 'react-router-dom';
 
-const Home = React.lazy(() => import('../pages/Home'));
-const Recents = React.lazy(() => import('../pages/Recents'));
-const Profile = React.lazy(() => import('../pages/Profile'));
+import { Home, Profile, Recents } from 'pages';
 
 export function RoutesApp() {
   return (

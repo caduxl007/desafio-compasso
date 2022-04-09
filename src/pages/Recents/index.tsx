@@ -6,7 +6,7 @@ import { usePersistedState } from 'utils/usePersistedState';
 
 import './styles.scss';
 
-export default function Recents() {
+export function Recents() {
   const [users] = usePersistedState<IUser[]>('users', []);
 
   return (

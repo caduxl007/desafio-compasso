@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
-import { Button, CardRepository } from 'components';
+import { Button, SectionContentCardsRepository } from 'components';
 import { IRepository } from 'shared/models';
 import { ProfileUser } from './components/ProfileUser';
 import { useDataGithub } from 'hooks/useDataGithub';
@@ -14,7 +14,7 @@ export function Profile() {
   const { user, repositoriesUser, repositoriesUserStarred, loadingDataUser } =
     useDataGithub();
 
-  const [repositories, setRepositories] = useState<IRepository[] | null>(null);
+  const [repositories, setRepositories] = useState<IRepository[]>([]);
 
   useEffect(() => {
     if (username && username !== user?.login) {
@@ -57,20 +57,7 @@ export function Profile() {
           </>
         )}
 
-        {repositories && (
-          <section className="profile__contentCardsRepository">
-            {repositories.map((data) => (
-              <CardRepository
-                key={String(data.id)}
-                description={data.description}
-                forks={data.forks}
-                stargazers_count={data.stargazers_count}
-                name={data.name}
-                watchers={data.watchers}
-              />
-            ))}
-          </section>
-        )}
+        <SectionContentCardsRepository repositories={repositories} />
       </main>
     </>
   );
