@@ -22,7 +22,7 @@ export function CardRepository({
       <div className="cardRepository__details">
         <p><strong>Stars:</strong> {stargazers_count}</p>
         <p><strong>Forks:</strong> {forks}</p>
-        <p><strong>Watch:</strong> {watchers}</p>
+        <p><strong>Stars:</strong> {watchers}</p>
       </div>
     </div>
   );
