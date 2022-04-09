@@ -11,7 +11,6 @@ export type IUser = {
 export type IRepository = {
   id: number;
   name: string;
-  description: string | null;
   watchers: number;
   forks: number;
   stargazers_count: number;

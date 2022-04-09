@@ -7,25 +7,22 @@ interface CardRepositoryProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function CardRepository({ repository, ...rest }: CardRepositoryProps) {
-  const { name, description, watchers, forks, stargazers_count } = repository;
+  const { name, watchers, forks, stargazers_count } = repository;
 
   return (
     <div {...rest} className="cardRepository">
       <div className="cardRepository__info">
-        <h3>{name}</h3>
-        {description && (
-          <p className="cardRepository__description">{description}</p>
-        )}
+        <h4>{name}</h4>
       </div>
 
       <div className="cardRepository__details">
-        <p>
+        <p className="cardRepository__data">
           <strong>Stars:</strong> {stargazers_count}
         </p>
-        <p>
+        <p className="cardRepository__data">
           <strong>Forks:</strong> {forks}
         </p>
-        <p>
+        <p className="cardRepository__data">
           <strong>Stars:</strong> {watchers}
         </p>
       </div>

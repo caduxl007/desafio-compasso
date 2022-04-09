@@ -4,7 +4,6 @@ import { IRepository } from 'shared/models';
 import { CardRepository } from '.';
 
 const MOCK_REPOSITORY = {
-  description: 'cadu',
   name: 'Eduardo',
   forks: 10,
   stargazers_count: 50,

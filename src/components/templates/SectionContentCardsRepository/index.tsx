@@ -37,7 +37,7 @@ export function SectionContentCardsRepository({
                 className="contentCardsRepository__list"
                 height={height}
                 itemCount={repositories.length}
-                itemSize={125}
+                itemSize={100}
                 width={width}
               >
                 {row}
