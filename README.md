@@ -22,6 +22,7 @@ As seguintes funcionalidades foram implementadas:
 
 ## 🖥 Deploy da aplicação:
 
+- [Desafio-Compasso](https://desafio-compasso.vercel.app/)
 
 <h1>📱 Como usar? </h1> 
 
